@@ -6,16 +6,22 @@ function saveInput(){
     var city = input.value
     var requestUrl ='https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=522997d238759d89251f223ea7bf7a0c&units=imperial'  
     fetch(requestUrl).then(function(response){
+        if (response.status === 404) {
+           // Add modal to tell user the city entered was invalid
+           badResponse()
+            console.log("404")
+            
+        }else{
         return response.json()
-         })
+        
          .then(function(data){
             $(".city").empty()
             $(".weather").empty()
             $( "#temp" ).empty()
             $( "#hiSpan" ).empty()
             $( "#lowSpan" ).empty()
-            $(".city").append(city)
-            $(".weather").append(data.weather[0].description)
+            $(".city").append(city.charAt(0).toUpperCase()+city.slice(1))
+            $(".weather").append(data.weather[0].description.charAt(0).toUpperCase()+data.weather[0].description.slice(1))
             $( "#temp" ).append(Math.round(data.main.temp)+"°F")
             $( "#hiSpan" ).append(Math.round(data.main.temp_max)+"°F")
             $( "#lowSpan" ).append( Math.round(data.main.temp_min) +"°F")
@@ -25,10 +31,11 @@ function saveInput(){
          console.log(Math.round(data.main.temp))   
          console.log(data.main.temp)
          });
-
+        }
+    })
 }
- function fetch1(){
-    
+ function badResponse(){
+
  }
  
 //  window.onkeyup = keyup;
