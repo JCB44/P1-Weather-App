@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script
       src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
@@ -15,11 +16,11 @@
 <body>
   <div class="app-wrap">
     <header>
-      <input type="text" id="input" autocomplete="off" class="search-box" placeholder="Search for a city." onchange="saveInput()" />
+      <input type="text" id="input" autocomplete="off" class="search-box" placeholder="Search for a City." onchange="saveInput()" />
     </header>
     <main>
       <section class="location">
-        <div class="city">Enter a city!</div>
+        <div class="city">Enter a City!</div>
         <div class="date"></div>
         <!-- Wednesday March 10, 2023 -- format -->
       </section>
@@ -28,6 +29,26 @@
         <div class="weather"></div>
         <div class="hi-low"><span id="lowSpan"></span> / <span id="hiSpan"></span></div>
       </div>
+
+
+<!-- Error Modal -->
+<div id="errorModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="close"id="close-button">X</div>
+    <p>Chuck Norris says that city ain't found!👊</p>
+  </div>
+</div>
+<!-- Chuck Norris Modal -->
+<div id="chuckModal" class="modal2">
+  <!-- Modal content -->
+  <div class="modal-content2">
+    <!-- <div class="close"id="close-button"></div> -->
+    <p id="joke"></p>
+  </div>
+</div>
+      
+        
     </main>
   </div>
   
