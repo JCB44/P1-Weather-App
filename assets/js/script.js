@@ -72,7 +72,6 @@ var WeatherUrl ='https://api.openweathermap.org/data/2.5/weather?q=' + city + '&
     var closeButton = document.getElementById("close-button");
     errorModal.style.display = "block";
     
-    
     window.onclick = function(event) {
       if (event.target == errorModal) {
         errorModal.style.display = "none";
