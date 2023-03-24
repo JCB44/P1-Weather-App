@@ -29,7 +29,7 @@ header input {
   padding: 10px 15px;
   border: none;
   outline: none;
-  background-color: antiquewhite;
+  background-color: rgb(245, 243, 230);
   font-size: 30px;
   font-weight: 270px;
   transform: 0.3s ease-out;
@@ -89,10 +89,10 @@ main {
 
 .modal {
   display: none; 
-  position: fixed; 
+  margin-top: 5px;
   z-index: 1; 
   left: 0;
-  top: 0;
+ 
   width: 100%;
   height: 100%;
   background-color: rgb(0,0,0); 
@@ -102,21 +102,22 @@ main {
 .modal-content {
   background-color: #fefefe;
   margin: 4% auto; 
-  padding: 20px;
+  padding: 13px;
   border: 1px solid #888;
-  width: 40%; 
+  width: 50%; 
+  border-radius: 10px 10px 10px 10px;
 }
 
 .close {
-  color: #aaa;
-  float: right;
+  color: black;
+  float:inline-end;
   font-size: 28px;
   font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #aaa;
   text-decoration: none;
   cursor: pointer;
 }
@@ -131,11 +132,18 @@ main {
 }
 
 .modal-content2 {
-  background-color: #fefefe;
+  background-color: rgb(245, 243, 230);
   margin: 0 auto; 
-  margin-top: 10vh;
+  margin-top: 7vh;
   padding: 20px;
   border: 1px solid #888;
-  width: 40%; 
+  width: 50%; 
+  border-radius: 22px 22px 22px 22px;
+}
+.joke { 
+  font-size: 30px;
 }
 
+.error {
+  font-size: 20px;
+}
