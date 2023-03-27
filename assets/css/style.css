@@ -22,15 +22,24 @@ header {
   align-items: center;
   padding: 50px 15px 15px;
 }
-
+@media screen and (max-width: 912px){
+header{
+  padding: 20px 10px 15px;
+}
+}
+@media screen and (max-height: 860px){
+header{
+  padding: 20px 10px 15px;
+}
+}
 header input {
   width: 100%;
-  max-width: 350px;
+  max-width: 18rem;
   padding: 10px 15px;
   border: none;
   outline: none;
   background-color: rgb(245, 243, 230);
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: 270px;
   transform: 0.3s ease-out;
   border-radius: 22px 22px 20px 22px;
@@ -48,6 +57,16 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+@media screen and (max-width: 912px){
+  main {
+    padding: 5px 15px 0px;
+  }
+}
+@media screen and (max-height: 860px){
+  main {
+    padding: 5px 15px 0px;
+  }
 }
 
 .location .city {
@@ -70,6 +89,20 @@ main {
   margin: 20px 2px;
   margin-bottom: 25px;
 }
+@media screen and (max-width: 912px){
+  .current .temp{
+    font-size: 80px;
+    margin: 0px 2px;
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-height: 860px){
+  .current .temp{
+    font-size: 80px;
+    margin: 0px 2px;
+    margin-bottom: 0px;
+  }
+}
 
 .current .weather {
   color: white;
@@ -79,7 +112,16 @@ main {
   text-shadow: 8px 8px 8px 8px black;
   margin-bottom: 60px;
 }
-
+@media screen and (max-width: 912px){
+  .current .weather {
+    margin-bottom: 5px;
+}
+}
+@media screen and (max-height: 860px){
+  .current .weather {
+    margin-bottom: 5px;
+}
+}
 .current .hi-low {
   color: white;
   font-weight: 700;
@@ -89,10 +131,7 @@ main {
 
 .modal {
   display: none; 
-  margin-top: 5px;
   z-index: 1; 
-  left: 0;
- 
   width: 100%;
   height: 100%;
   background-color: rgb(0,0,0); 
@@ -104,7 +143,6 @@ main {
   margin: 4% auto; 
   padding: 13px;
   border: 1px solid #888;
-  width: 50%; 
   border-radius: 10px 10px 10px 10px;
 }
 
@@ -121,29 +159,75 @@ main {
   text-decoration: none;
   cursor: pointer;
 }
-.modal2 {
+.chuck-modal {
+  align-items: center;
   display: none; 
   z-index: 1; 
   left: 0;
   top: 0;
-  width: 100%; 
+  width: 70%; 
   height: 100%; 
   overflow: auto; 
 }
+@media screen and (max-width: 912px){
+  .chuck-modal{
+    width: 90%;
+  }
+}
+@media screen and (max-height: 860px){
+  .chuck-modal{
+    width: 90%;
+  }
+}
 
-.modal-content2 {
+.chuck-modal-content {
   background-color: rgb(245, 243, 230);
   margin: 0 auto; 
   margin-top: 7vh;
   padding: 20px;
-  border: 1px solid #888;
-  width: 50%; 
+  border: 1px solid #888; 
   border-radius: 22px 22px 22px 22px;
+}
+@media screen and (max-width: 912px){
+  .chuck-modal-content {
+    padding: 10px 6px;
+    margin: 1vh;
+  }
+}
+@media screen and (max-height: 860px){
+  .chuck-modal-content {
+    padding: 10px 6px;
+    margin: 1vh;
+  }
 }
 .joke { 
   font-size: 30px;
+}
+@media screen and (max-width: 912px){
+  .joke { 
+    font-size: 22px;
+  }
+}
+@media screen and (max-height: 860px){
+  .joke { 
+    font-size: 22px;
+  }
 }
 
 .error {
   font-size: 20px;
 }
+
+.button{
+margin-top: 4px !important;
+}
+@media screen and (max-width: 912px){
+.button{
+padding: 5px 5px;
+}
+}
+@media screen and (max-height: 860px){
+  .button{
+  padding: 5px 5px;
+  }
+  }

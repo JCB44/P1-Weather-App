@@ -11,7 +11,7 @@
       integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
       crossorigin="anonymous"
     ></script>
-  <title>Weather Application</title>
+  <title>Weather With Chuck</title>
 </head>
 <body>
   <div class="app-wrap">
@@ -25,9 +25,9 @@
         <!-- Wednesday March 10, 2023 -- format -->
       </section>
       <div class="current">
-        <div class="temp"><span id="temp"></span></div>
+        <div class="temp"><span id="temp">0°</span></div>
         <div class="weather"></div>
-        <div class="hi-low"><span id="lowSpan"></span> / <span id="hiSpan"></span></div>
+        <div class="hi-low"><span id="lowSpan">Lows</span> / <span id="hiSpan">Highs</span></div>
       </div>
 
 
@@ -40,19 +40,16 @@
   </div>
 </div>
 <!-- Chuck Norris Modal -->
-<div id="chuckModal" class="modal2">
+<div id="chuckModal" class="chuck-modal">
   <!-- Modal content -->
-  <div class="modal-content2">
+  <div class="chuck-modal-content">
     <!-- <div class="close"id="close-button"></div> -->
     <p class="joke" id="joke"></p>
+    <button id="getAnother"class="button is-info">Click here to Get Another!</button>
   </div>
-</div>
-      
-        
+</div>  
     </main>
   </div>
-  
-
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="./assets/js/script.js"></script>  
 </body>
