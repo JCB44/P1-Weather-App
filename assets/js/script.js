@@ -1,9 +1,9 @@
 var city
+var valid
 
 function currentDay(){
 var now = dayjs().format('dddd MMMM DD, YYYY') 
 $(".date").append(now)
-console.log(now)
 }
 
 function displayLast(){
@@ -12,24 +12,28 @@ city = lastCity
 if(lastCity === null){
 //does nothing on purpose
 }else{
-    makeCall()
+//            comment this out if you want joke 
+//  \/\/\/\/  to appear on loacal storage startup
+  // valid = false
+  makeCall()
 }
 }
 
 function saveInput(){
     var input = document.getElementById("input")
     city = input.value
+    valid = true
     makeCall()
+    
 }
 
 function makeCall(){
 var WeatherUrl ='https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=522997d238759d89251f223ea7bf7a0c&units=imperial'  
     fetch(WeatherUrl).then(function(response){
         if (response.status === 404) {
-           // Add modal to tell user the city entered was invalid
+            
            badResponse()
             console.log("404")
-            
         }else{
         return response.json()
          .then(function(data){
@@ -44,28 +48,28 @@ var WeatherUrl ='https://api.openweathermap.org/data/2.5/weather?q=' + city + '&
             $( "#hiSpan" ).append(Math.round(data.main.temp_max)+"°F")
             $( "#lowSpan" ).append( Math.round(data.main.temp_min) +"°F")
             localStorage.setItem("Last City", city)
-            // chuckModal.style.display = "block";
-            // errorModalfu()
-            goodResponse()
-            // console.log(data)
-            // console.log(Math.round(data.main.temp))   
-            // console.log(data.main.temp)
+            if(valid === false){
+                console.log(valid)
+            }else{
+                goodResponse()
+            }
+
+            console.log(data)
          });
         }
     })
-
-    var requestUrl = 'https://api.chucknorris.io/jokes/random'
+}
+function fetchJoke(){
+var requestUrl = 'https://api.chucknorris.io/jokes/random'
     fetch(requestUrl).then(function(response){
         return response.json()
         .then(function(data){
-            console.log(data)
-            console.log(data.value) 
+            console.log(data) 
             $("#joke").empty()
             $("#joke").append(data.value)
         })
     })
 }
-
 
  function badResponse(){
     var errorModal = document.getElementById("errorModal");
@@ -82,52 +86,13 @@ var WeatherUrl ='https://api.openweathermap.org/data/2.5/weather?q=' + city + '&
       });
  }
  function goodResponse(){
+  fetchJoke()
     var chuckModal = document.getElementById("chuckModal");
-    var closeButton = document.getElementById("close-button");
     chuckModal.style.display = "block";
-    
-    
-    window.onclick = function(event) {
-      if (event.target == chuckModal) {
-        chuckModal.style.display = "none";
-      }
-    }
+    var button = document.getElementById("getAnother")
+    button.addEventListener("click", function(){
+      fetchJoke()
+    });
  }
-
 currentDay()
 displayLast()
-
-
-
-
-// function errorModalfu(){
-
-// var errorModal = document.getElementById("errorModal");
-
-// var span = document.getElementsByClassName("close");
-
-// span.onclick = function() {
-//     errorModal.style.display = "none";
-//     console.log("1")
-// }
-
-// window.onclick = function(event) {
-//   if (event.target == errorModal) {
-//     errorModal.style.display = "none";
-//     console.log("2")
-//   }
-// }
-// }
-// function chuckModalfu(){
-//     var chuckModal = document.getElementById("chuckModal");
-//     var span = document.getElementsByClassName("close");
-//     chuckModal.style.display = "block";
-//     span.onclick = function() {
-//         chuckModal.style.display = "none";
-//     }
-//     window.onclick = function(event) {
-//         if (event.target == chuckModal) {
-//           chuckModal.style.display = "none";
-//         }
-//       }
-// }
